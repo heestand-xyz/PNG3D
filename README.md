@@ -1,7 +1,9 @@
 # PNG3D
 
-A file format for voxel images.
+File Format for 3D Images
                     
+## Example
+
 ```swift
 let resolution = SIMD3<Int>(100, 100, 100)
 let graphic3D: Graphic3D = try await .sphere(resolution: resolution)
