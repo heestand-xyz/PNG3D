@@ -50,14 +50,13 @@ public struct PNG3D {
     
     public static func read(url: URL) async throws -> Graphic3D {
         
-        let zipURL: URL = url
-            .deletingPathExtension()
-            .appendingPathExtension("zip")
-        try FileManager.default.copyItem(at: url, to: zipURL)
-
         let tempURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("png3d_read_\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: tempURL, withIntermediateDirectories: false)
+
+        let zipURL: URL = tempURL
+            .appending(component: "temp.zip")
+        try FileManager.default.copyItem(at: url, to: zipURL)
         
         let folderURL: URL = try await unzip(zipURL)
             .appendingPathComponent(Self.folderName)
