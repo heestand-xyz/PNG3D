@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "asyncgraphics",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/heestand-xyz/AsyncGraphics",
+      "state" : {
+        "revision" : "754c4fdc5f635406e3b3cd4c2f5f3ca203a9ab7e",
+        "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "coregraphicsextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/heestand-xyz/CoreGraphicsExtensions",
+      "state" : {
+        "revision" : "d709d012c874482240c0cffc0e458d95c0ede8c8",
+        "version" : "1.5.0"
+      }
+    },
+    {
+      "identity" : "pixelcolor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/heestand-xyz/PixelColor",
+      "state" : {
+        "revision" : "571060cf302e9465f2ad09cf7ff34deff524d607",
+        "version" : "2.2.0"
+      }
+    },
+    {
+      "identity" : "texturemap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/heestand-xyz/TextureMap",
+      "state" : {
+        "revision" : "0ffd34d628365fce171ca120b6a481a2f9e22da0",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "videoframes",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/heestand-xyz/VideoFrames",
+      "state" : {
+        "revision" : "3de476e958b765699eb2f98ca42336acfc262f49",
+        "version" : "1.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}
