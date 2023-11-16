@@ -17,11 +17,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/heestand-xyz/AsyncGraphics", from: "1.8.1"),
+        .package(url: "https://github.com/marmelroy/Zip", from: "2.1.2"),
     ],
     targets: [
         .target(
             name: "PNG3D",
-            dependencies: ["AsyncGraphics"]),
+            dependencies: ["AsyncGraphics", "Zip"]),
         .testTarget(
             name: "PNG3DTests",
             dependencies: ["PNG3D"]),
