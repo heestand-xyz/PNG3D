@@ -12,12 +12,12 @@ public struct PNG3D {
     private static let layersName: String = "layers"
     private static let layerName: String = "layer"
     
-    enum PNG3DError: LocalizedError {
+    public enum PNG3DError: LocalizedError {
         case noFolderFound
         case noInfoFileFound
         case noLayersFolderFound
         case noLayerFileFound(index: Int)
-        var errorDescription: String? {
+        public var errorDescription: String? {
             switch self {
             case .noFolderFound:
                 return "PNG3D - No Folder Found"
@@ -31,7 +31,7 @@ public struct PNG3D {
         }
     }
     
-    static func read(data: Data) async throws -> Graphic3D {
+    public static func read(data: Data) async throws -> Graphic3D {
         
         let tempURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("png3d_read_\(UUID().uuidString)")
@@ -48,7 +48,7 @@ public struct PNG3D {
         return graphic3D
     }
     
-    static func read(url: URL) async throws -> Graphic3D {
+    public static func read(url: URL) async throws -> Graphic3D {
         
         let zipURL: URL = url
             .deletingPathExtension()
@@ -107,14 +107,14 @@ public struct PNG3D {
         return graphic3D
     }
     
-    static func write(graphic3D: Graphic3D) async throws -> Data {
+    public static func write(graphic3D: Graphic3D) async throws -> Data {
         let url: URL = try await write(graphic3D: graphic3D)
         let data = try Data(contentsOf: url)
         try FileManager.default.removeItem(at: url)
         return data
     }
     
-    static func write(graphic3D: Graphic3D) async throws -> URL {
+    public static func write(graphic3D: Graphic3D) async throws -> URL {
         
         /// Graphics
         
