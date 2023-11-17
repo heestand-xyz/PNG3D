@@ -55,7 +55,7 @@ public struct PNG3D {
         try FileManager.default.createDirectory(at: tempURL, withIntermediateDirectories: false)
 
         let zipURL: URL = tempURL
-            .appending(component: "temp.zip")
+            .appendingPathComponent("temp.zip")
         try FileManager.default.copyItem(at: url, to: zipURL)
         
         let folderURL: URL = try await unzip(zipURL)
