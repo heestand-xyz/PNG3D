@@ -2,7 +2,7 @@
 
 File Format for 3D Images
 
-## Example
+## Read & Write
 
 ```swift
 let resolution = SIMD3<Int>(100, 100, 100)
@@ -16,4 +16,22 @@ try fileData.write(to: fileURL)
 /// Read
 let newFileData = try Data(contentsOf: fileURL)
 let newGraphic3D: Graphic3D = try await PNG3D.read(data: newFileData)
+```
+
+## View
+
+> Optimized for visionOS in 3D, tho still works on iOS and macOS in 2D.
+
+```swift
+import SwiftUI
+import PNG3D
+
+struct ContentView: View {
+    
+    let url = URL(filePath: "/Users/.../Desktop/test.png3d")
+        
+    var body: some View {
+        PNG3DView(url: url, placement: .fit)
+    }
+}
 ```

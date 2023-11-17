@@ -16,7 +16,7 @@ let package = Package(
             targets: ["PNG3D"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/heestand-xyz/AsyncGraphics", from: "1.8.1"),
+        .package(url: "https://github.com/heestand-xyz/AsyncGraphics", from: "1.8.2"),
         .package(url: "https://github.com/marmelroy/Zip", from: "2.1.2"),
     ],
     targets: [

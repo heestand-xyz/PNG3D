@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/heestand-xyz/AsyncGraphics",
       "state" : {
-        "revision" : "754c4fdc5f635406e3b3cd4c2f5f3ca203a9ab7e",
-        "version" : "1.8.1"
+        "revision" : "a57ab44c5a8bdf8f3a22f758596cbbb84efc856e",
+        "version" : "1.8.2"
       }
     },
     {
@@ -43,6 +43,15 @@
       "state" : {
         "revision" : "3de476e958b765699eb2f98ca42336acfc262f49",
         "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "zip",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/Zip",
+      "state" : {
+        "revision" : "67fa55813b9e7b3b9acee9c0ae501def28746d76",
+        "version" : "2.1.2"
       }
     }
   ],
