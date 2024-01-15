@@ -152,9 +152,9 @@ public struct PNG3D {
         
         /// Info
         
-        let resolution = PNG3DResolution(width: graphic3D.width,
-                                         height: graphic3D.height,
-                                         depth: graphic3D.depth)
+        let resolution = PNG3DResolution(width: Int(graphic3D.width),
+                                         height: Int(graphic3D.height),
+                                         depth: Int(graphic3D.depth))
         let info = PNG3DInfo(resolution: resolution)
         
         let encoder = JSONEncoder()
