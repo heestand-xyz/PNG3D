@@ -8,6 +8,11 @@ File format for 3D images (voxel volume)
 ## Read & Write
 
 ```swift
+import PNG3D
+import AsyncGraphics
+```
+
+```swift
 let resolution = SIMD3<Int>(100, 100, 100)
 let graphic3D: Graphic3D = try await .sphere(resolution: resolution)
 
