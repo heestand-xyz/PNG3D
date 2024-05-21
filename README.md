@@ -1,6 +1,6 @@
 # PNG3D
 
-File format for 3D images
+File format for 3D images (voxel volume)
 
 > This format is mainly built for use with [AsyncGraphics](https://github.com/heestand-xyz/AsyncGraphics) and the [Graphic3D](https://heestand-xyz.github.io/AsyncGraphics-Docs/documentation/asyncgraphics/graphic3d) type
 
