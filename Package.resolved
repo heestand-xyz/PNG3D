@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/heestand-xyz/AsyncGraphics",
       "state" : {
-        "revision" : "a57ab44c5a8bdf8f3a22f758596cbbb84efc856e",
-        "version" : "1.8.2"
+        "revision" : "cfb9dfbc0ec094084e4d9bd52a368c0fd8738994",
+        "version" : "2.0.5"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/heestand-xyz/CoreGraphicsExtensions",
       "state" : {
-        "revision" : "d709d012c874482240c0cffc0e458d95c0ede8c8",
-        "version" : "1.5.0"
+        "revision" : "10a0403455eff7b8217054960d6391c98c0dea37",
+        "version" : "1.7.2"
       }
     },
     {
@@ -23,8 +23,26 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/heestand-xyz/PixelColor",
       "state" : {
-        "revision" : "571060cf302e9465f2ad09cf7ff34deff524d607",
-        "version" : "2.2.0"
+        "revision" : "985d12c8339bc0ae08803a0abde32c2e4696c4ce",
+        "version" : "2.2.2"
+      }
+    },
+    {
+      "identity" : "spatialextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/heestand-xyz/SpatialExtensions",
+      "state" : {
+        "revision" : "f2b83a6928847f8cc9fa792af5f7d003a34b33c9",
+        "version" : "0.1.2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax",
+      "state" : {
+        "revision" : "64889f0c732f210a935a0ad7cda38f77f876262d",
+        "version" : "509.1.1"
       }
     },
     {
@@ -32,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/heestand-xyz/TextureMap",
       "state" : {
-        "revision" : "0ffd34d628365fce171ca120b6a481a2f9e22da0",
-        "version" : "1.0.0"
+        "revision" : "f07a0127f59217933b9b89c2eda4dd26a2da701f",
+        "version" : "1.0.2"
       }
     },
     {

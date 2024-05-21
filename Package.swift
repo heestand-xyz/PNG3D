@@ -5,9 +5,9 @@ import PackageDescription
 let package = Package(
     name: "PNG3D",
     platforms: [
-        .iOS(.v15),
-        .tvOS(.v15),
-        .macOS(.v12),
+        .iOS(.v16),
+        .tvOS(.v16),
+        .macOS(.v13),
         .visionOS(.v1)
     ],
     products: [
@@ -16,7 +16,7 @@ let package = Package(
             targets: ["PNG3D"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/heestand-xyz/AsyncGraphics", from: "1.8.2"),
+        .package(url: "https://github.com/heestand-xyz/AsyncGraphics", from: "2.0.5"),
         .package(url: "https://github.com/marmelroy/Zip", from: "2.1.2"),
     ],
     targets: [
