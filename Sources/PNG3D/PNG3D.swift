@@ -140,10 +140,12 @@ public struct PNG3D {
                 .map(\.value)
         }
         
+        let tempID = UUID()
+        
         /// File
         
         let tempURL = FileManager.default.temporaryDirectory
-            .appendingPathComponent("png3d_write_\(UUID().uuidString)")
+            .appendingPathComponent("png3d_write_\(tempID.uuidString)")
         try FileManager.default.createDirectory(at: tempURL, withIntermediateDirectories: false)
         
         let folderURL = tempURL
@@ -182,7 +184,7 @@ public struct PNG3D {
             try await group.waitForAll()
         }
         
-        let zipURL: URL = try await zip(folderURL, as: Self.fileName)
+        let zipURL: URL = try await zip(folderURL, as: "\(Self.fileName)_\(tempID.uuidString)")
 
         try FileManager.default.removeItem(at: tempURL)
 
