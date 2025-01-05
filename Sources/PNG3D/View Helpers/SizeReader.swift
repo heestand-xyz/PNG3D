@@ -14,7 +14,7 @@ public struct SizeReader: View {
                 .onAppear {
                     size = geometry.size
                 }
-                .onChange(of: geometry.size) { size in
+                .onChange(of: geometry.size) { _, size in
                     self.size = size
                 }
         }
