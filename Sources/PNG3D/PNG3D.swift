@@ -17,6 +17,9 @@ public struct PNG3D {
         case noInfoFileFound
         case noLayersFolderFound
         case noLayerFileFound(index: Int)
+        case invalidArchive
+        case unsafeArchivePath
+        case invalidResolution
         public var errorDescription: String? {
             switch self {
             case .noFolderFound:
@@ -27,6 +30,12 @@ public struct PNG3D {
                 return "PNG3D - No Layers Folder Found"
             case .noLayerFileFound(let index):
                 return "PNG3D - No Layer File Found at Index \(index)"
+            case .invalidArchive:
+                return "PNG3D - Invalid Archive"
+            case .unsafeArchivePath:
+                return "PNG3D - Unsafe Archive Entry"
+            case .invalidResolution:
+                return "PNG3D - Resolution Dimensions Must Be Positive"
             }
         }
     }
@@ -36,30 +45,24 @@ public struct PNG3D {
         let tempURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("png3d_read_\(UUID().uuidString)")
         try FileManager.default.createDirectory(at: tempURL, withIntermediateDirectories: false)
+        defer { try? FileManager.default.removeItem(at: tempURL) }
         
         let url = tempURL.appendingPathComponent("temp.\(Self.fileExtension)")
         
         try data.write(to: url)
         
-        let graphic3D: Graphic3D = try await read(url: url)
-        
-        try FileManager.default.removeItem(at: tempURL)
-        
-        return graphic3D
+        return try await read(url: url)
     }
     
     public static func read(url: URL) async throws -> Graphic3D {
         
-        let tempURL = FileManager.default.temporaryDirectory
-            .appendingPathComponent("png3d_read_\(UUID().uuidString)")
-        try FileManager.default.createDirectory(at: tempURL, withIntermediateDirectories: false)
+        try await withUnzippedArchive(at: url) { contentsURL in
+            try await readContents(at: contentsURL)
+        }
+    }
 
-        let zipURL: URL = tempURL
-            .appendingPathComponent("temp.zip")
-        try FileManager.default.copyItem(at: url, to: zipURL)
-        
-        let folderURL: URL = try await unzip(zipURL)
-            .appendingPathComponent(Self.folderName)
+    private static func readContents(at contentsURL: URL) async throws -> Graphic3D {
+        let folderURL = contentsURL.appendingPathComponent(Self.folderName)
         guard FileManager.default.fileExists(atPath: folderURL.path) else {
             throw PNG3DError.noFolderFound
         }
@@ -76,6 +79,9 @@ public struct PNG3D {
         let infoData: Data = try Data(contentsOf: infoFileURL)
         let info: PNG3DInfo = try decoder.decode(PNG3DInfo.self, from: infoData)
         let resolution: PNG3DResolution = info.resolution
+        guard resolution.width > 0, resolution.height > 0, resolution.depth > 0 else {
+            throw PNG3DError.invalidResolution
+        }
         
         /// Layers
         
@@ -99,11 +105,7 @@ public struct PNG3D {
         
         /// Graphic 3D
         
-        let graphic3D: Graphic3D = try await .construct(graphics: graphics)
-        
-        try FileManager.default.removeItem(at: tempURL)
-
-        return graphic3D
+        return try await .construct(graphics: graphics)
     }
     
     public static func write(graphic3D: Graphic3D) async throws -> Data {
