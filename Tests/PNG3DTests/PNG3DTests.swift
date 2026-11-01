@@ -19,7 +19,7 @@ final class PNG3DTests: XCTestCase {
         }
         let original = try await Graphic3D.channels(channels, resolution: resolution)
 
-        let fileData = try await PNG3D.write(graphic3D: original)
+        let fileData: Data = try await PNG3D.write(graphic3D: original)
         let restored = try await PNG3D.read(data: fileData)
         let restoredChannels = try await restored.channels
 
